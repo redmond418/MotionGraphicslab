@@ -1,0 +1,20 @@
+{
+    "name": "Redmond.MotionGraphicsLab.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0aaba1b762d9745c5b24f7dffcf4e9dc",
+        "GUID:853a45e832e14ef4885ab7f59fc9b305",
+        "GUID:02f771204943f4a40949438e873e3eff"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,17 @@
+{
+    "name": "com.redmond.motion-graphics-lab",
+    "version": "0.1.0",
+    "displayName": "Motion Graphics Lab",
+    "description": "Motion Graphics for Myself",
+    "unity": "2022.3",
+    "author": {
+        "name": "Redmond"
+    },
+    "dependencies": {
+        "com.annulusgames.lucid-editor": "https://github.com/AnnulusGames/LucidEditor.git?path=/Assets/LucidEditor",
+        "com.annulusgames.tween-playables": "https://github.com/AnnulusGames/TweenPlayables.git?path=/Assets/TweenPlayables",
+        "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+        "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
+        "com.unity.timeline": "1.7.4"
+    }
+}

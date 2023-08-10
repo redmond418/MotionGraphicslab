@@ -1,0 +1,20 @@
+{
+    "name": "Redmond.MotionGraphicsLab.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:61e414d28904347ac9dcadbbe2f37a94",
+        "GUID:f4d030424e0f14f879b5a3300cf1bcb1",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:f06555f75b070af458a003d92f9efb00"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
