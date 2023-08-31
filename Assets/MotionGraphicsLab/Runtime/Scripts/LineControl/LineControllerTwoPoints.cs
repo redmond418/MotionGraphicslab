@@ -5,28 +5,28 @@ namespace Redmond.MotionGraphicsLab
     [ExecuteInEditMode]
     public class LineControllerTwoPoints : MonoBehaviour
     {
-        [SerializeField] private LineRenderer lineRenderer;
-        [SerializeField] private Vector3 endA = Vector3.zero;
-        [SerializeField] private Vector3 endB = Vector3.right;
-        private readonly Vector3[] ends = new Vector3[2];
+        [SerializeField] private LineMeshGenerator line;
+        [SerializeField] private Vector2 endA = Vector2.zero;
+        [SerializeField] private Vector2 endB = Vector2.right;
+        private readonly Vector2[] ends = new Vector2[2];
 
-        public Vector3 EndA
+        public Vector2 EndA
         {
             get => endA; 
             set => endA = value;
         }
-        public Vector3 EndB
+        public Vector2 EndB
         {
-            get => EndB;
-            set => EndB = value;
+            get => endB;
+            set => endB = value;
         }
 
         private void Update()
         {
-            if (lineRenderer == null) return;
+            if (line == null) return;
             ends[0] = endA;
             ends[1] = endB;
-            lineRenderer.SetPositions(ends);
+            line.SetPositions(ends);
         }
     }
 }

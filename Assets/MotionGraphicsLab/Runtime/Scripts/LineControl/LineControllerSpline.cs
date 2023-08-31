@@ -9,15 +9,15 @@ namespace Redmond.MotionGraphicsLab
     [ExecuteInEditMode]
     public class LineControllerSpline : MonoBehaviour
     {
-        [SerializeField] private LineRenderer lineRenderer;
+        [SerializeField] private LineMeshGenerator line;
         [SerializeField] private SplineContainer splineContainer;
         [SerializeField] private bool isLoop;
         [SerializeField/*, HorizontalGroup("ends"), Range(0, 2)*/] private float endA = 0;
         [SerializeField/*, HorizontalGroup("ends"), Range(0, 2)*/] private float endB = 1;
         [SerializeField] private DivideType divideMode;
         [SerializeField, ShowIf("IsEquidistantDivide")] private int divideCount;
-        private Vector3[] positions = new Vector3[2];
-        private float[] values = new float[2];
+        private readonly List<Vector2> positions = new();
+        private readonly List<float> values = new();
         private readonly List<float> mediumPositionsCache = new();
 
         private bool IsEquidistantDivide() => divideMode == DivideType.Equidistant;
@@ -35,18 +35,18 @@ namespace Redmond.MotionGraphicsLab
 
         private void Update()
         {
-            if (lineRenderer is null || splineContainer is null) return;
+            if (line is null || splineContainer is null) return;
             switch (divideMode)
             {
                 case DivideType.Equidistant:
                     if (divideCount <= 0) divideCount = 1;
-                    if (values.Length != divideCount + 1) Array.Resize(ref values, divideCount + 1);
-                    values[0] = endA;
-                    values[^1] = endB;
-                    for (int i = 1; i < values.Length - 1; i++)
+                    values.Clear();
+                    values.Add(endA);
+                    for (int i = 1; i < divideCount; i++)
                     {
-                        values[i] = Mathf.Lerp(endA, endB, (float)i / divideCount);
+                        values.Add(Mathf.Lerp(endA, endB, (float)i / divideCount));
                     }
+                    values.Add(endB);
                     break;
                 case DivideType.Knots:
                     mediumPositionsCache.Clear();
@@ -71,25 +71,29 @@ namespace Redmond.MotionGraphicsLab
                         }
                     }
                     var count = mediumPositionsCache.Count;
-                    if (values.Length != count + 2) Array.Resize(ref values, count + 2);
-                    values[0] = endA2;
-                    values[^1] = endB2;
+                    values.Clear();
+                    values.Add(endA2);
                     if(startIndex < 0) startIndex = 0;
                     for (int i = 0; i < count; i++)
                     {
-                        values[i + 1] = mediumPositionsCache[(i + startIndex) % count];
+                        values.Add(mediumPositionsCache[(i + startIndex) % count]);
                     }
+                    values.Add(endB2);
                     break;
                 default:
                     return;
             }
-            if(positions.Length != values.Length) Array.Resize(ref positions, values.Length);
-            for (int i = 0; i < positions.Length; i++)
+            for (int i = 0; i < values.Count; i++)
             {
-                positions[i] = splineContainer.EvaluatePosition(isLoop ? values[i] - (int)values[i] : Mathf.Clamp01(values[i]));
+                Vector2 pos = (Vector3)splineContainer.EvaluatePosition(isLoop ? values[i] - Mathf.Floor(values[i]) : Mathf.Clamp01(values[i]));
+                if (i < positions.Count) positions[i] = pos;
+                else positions.Add(pos);
             }
-            if (lineRenderer.positionCount != positions.Length) lineRenderer.positionCount = positions.Length;
-            lineRenderer.SetPositions(positions);
+            for (int i = positions.Count - 1; i >= values.Count; i--)
+            {
+                positions.RemoveAt(i);
+            }
+            line.SetPositions(positions);
         }
     }
 
