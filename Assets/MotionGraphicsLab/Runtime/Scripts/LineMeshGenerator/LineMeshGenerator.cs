@@ -204,6 +204,7 @@ namespace Redmond.MotionGraphicsLab
                 mesh.SetVertices(verticesPosition);
                 mesh.SetColors(colors);
             }
+            mesh.RecalculateBounds();
             previousVerteicesCount = verticesPosition.Count;
         }
 
