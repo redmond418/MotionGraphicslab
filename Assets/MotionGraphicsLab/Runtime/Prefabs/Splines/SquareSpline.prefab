@@ -81,7 +81,7 @@ MonoBehaviour:
     - Position:
         x: -0.5
         y: 0.5
-        z: 1
+        z: 0
       TangentIn:
         x: 0
         y: 0
@@ -136,8 +136,8 @@ MonoBehaviour:
     - Mode: 1
       Tension: 0.5
       m_DistanceToInterpolation:
-      - Distance: 0
-        T: 0
+      - Distance: -1
+        T: -1
       - Distance: 0.0049288035
         T: 0.03448276
       - Distance: 0.019251252
@@ -199,8 +199,8 @@ MonoBehaviour:
     - Mode: 1
       Tension: 0.5
       m_DistanceToInterpolation:
-      - Distance: 0
-        T: 0
+      - Distance: -1
+        T: -1
       - Distance: 0.004928821
         T: 0.03448276
       - Distance: 0.019251248
@@ -262,8 +262,8 @@ MonoBehaviour:
     - Mode: 1
       Tension: 0.5
       m_DistanceToInterpolation:
-      - Distance: 0
-        T: 0
+      - Distance: -1
+        T: -1
       - Distance: 0.0034852028
         T: 0.03448276
       - Distance: 0.013612688
@@ -325,8 +325,8 @@ MonoBehaviour:
     - Mode: 1
       Tension: 0.5
       m_DistanceToInterpolation:
-      - Distance: 0
-        T: 0
+      - Distance: -1
+        T: -1
       - Distance: 0.0034852028
         T: 0.03448276
       - Distance: 0.013612688

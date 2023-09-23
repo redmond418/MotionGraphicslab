@@ -755,8 +755,8 @@ MonoBehaviour:
   behaviour:
     endA:
       active: 1
-      startValue: 0.8965
-      endValue: 1.8965
+      startValue: 0.875
+      endValue: 1.875
       ease:
         ease: 15
         customEaseCurve:
@@ -4256,8 +4256,8 @@ MonoBehaviour:
       relative: 0
     endB:
       active: 1
-      startValue: 0.8966
-      endValue: 1.8966
+      startValue: 0.876
+      endValue: 1.876
       ease:
         ease: 15
         customEaseCurve:
